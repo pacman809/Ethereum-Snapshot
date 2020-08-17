@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 #GARTH MADDEN 2019 Garthmadden809@gmail.com
-#FINDS MISSING OR DUPLICATE BLOCKS IN DATABASE
+#FINDS MISSING BLOCKS IN DATABASE
 
 import pymongo
 from web3 import Web3
-import search
+import config
 import collections
 from os import system
 
