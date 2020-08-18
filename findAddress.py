@@ -41,7 +41,7 @@ while y <= config.SnapshotBlock:
 						pass
 
 					try:
-						balance = Web3.fromWei(web3.eth.getBalance(address),'Ether')
+						balance = Web3.fromWei(web3.eth.getBalance(address), config.perspective)
 						#balance = 1
 						pass
 					except:

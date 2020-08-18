@@ -11,14 +11,16 @@ Pre-Requisites
 INSTALL
 
 check Requirements.txt
+Enter commands
 
 ```pip install -r requirements.txt```
-```p freeze > requirements.txt```
+
+```pip freeze > requirements.txt```
 
 edit config.py accordingly
 
 -run python FindMissing.py (Optional) 
-Finds missing blocks in Chain gather all missing blocks and add to DB
+Finds missing blocks in Chain. Gather all missing blocks and add to DB before continuing.
 Takes A long time depending on block height. approx 1 hr for 5M blocks
 
 -run python findAddress.py
