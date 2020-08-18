@@ -9,15 +9,15 @@ import config
 import collections
 from os import system
 
-web3            		= config.geth()
+web3            	= config.geth()
 blockHeight             = []
-blockNumber     		= 0
-missingBlocks   		= []
+blockNumber     	= 0
+missingBlocks   	= []
 missingBlocksFinal      = []
 jump                    = 0
 mylist                  = 0
-#BlockTestHeight 		= 250000 #UNHASH FOR TESTING
-count 					= 0
+#BlockTestHeight 	= 250000 #UNHASH FOR TESTING
+count 			= 0
 
 for x in config.block.find().sort([('_id', -1)]).limit(1):
 	BlockTestHeight = x["number"] #HASH FOR TESTING SETS BLOCK LIMIT
