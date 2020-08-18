@@ -15,7 +15,7 @@ toAddress 		= []
 richlist		= []
 masterList		= {}
 
-y = 1 
+y = config.SnapStart 
 
 
 def clear():
@@ -35,14 +35,14 @@ while y <= config.SnapshotBlock:
 				if x["to_address"] not in toAddress:
 					
 					try:
-						#address = Web3.toChecksumAddress(x["to_address"])
+						address = Web3.toChecksumAddress(x["to_address"])
 						pass
 					except:
 						pass
 
 					try:
-						#balance = Web3.fromWei(web3.eth.getBalance(address),'Ether')
-						balance = 1
+						balance = Web3.fromWei(web3.eth.getBalance(address),'Ether')
+						#balance = 1
 						pass
 					except:
 						balance = 0
@@ -67,8 +67,6 @@ while y <= config.SnapshotBlock:
 
 	y = y +1
 
-#print("TO ADDRESS'")		
-#print(len(toAddress))
 
 for wallets in toAddress:
 
@@ -87,7 +85,11 @@ for wallets in toAddress:
 
 
 masterList = sorted(masterList.items(), key=lambda x: x[1], reverse=True)
-#print(masterList)
 print(len(toAddress))
+print(f'Address, {config.perspective}')				#HASH FOR RANK
+#print(f'Address, {config.perspective}, Rank') 		#UNHASH FOR RANK
 for x in masterList:
-	print(x)
+	if x in masterList:
+		print(x)									#HASH FOR RANK
+		#print(f'{x}, {list(masterList).index(x)}')	#UNHASH FOR RANK
+		
