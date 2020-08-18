@@ -25,6 +25,7 @@ Takes A long time depending on block height. approx 1 hr for 5M blocks
 
 -run python findAddress.py
 
+Sample.txt show output
 
 Garth Madden
 Garthmadden809@gmail.com 
