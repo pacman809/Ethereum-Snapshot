@@ -50,12 +50,14 @@ while y <= config.SnapshotBlock:
 					
 					try:
 						if balance != 0:
-							clear()
-							print(f'Address: {x["to_address"]} Block: {y}  Total Found: {len( toAddress )}')
+							if config.suppress != True:
+								clear()
+								print(f'Address: {x["to_address"]} Block: {y}  Total Found: {len( toAddress )}')
 							#print(balance)
 							toAddress.append(x["to_address"])
 					except:
-						print("ERROR")
+						if config.suppress != True:
+							print("ERROR")
 					
 					
 					
@@ -65,8 +67,8 @@ while y <= config.SnapshotBlock:
 
 	y = y +1
 
-print("TO ADDRESS'")		
-print(len(toAddress))
+#print("TO ADDRESS'")		
+#print(len(toAddress))
 
 for wallets in toAddress:
 
@@ -75,13 +77,17 @@ for wallets in toAddress:
 		balance = Web3.fromWei( web3.eth.getBalance( address, config.SnapshotBlock ), config.perspective )
 
 		if balance == 0:
+			toAddress.remove(wallets)
 			pass
 		else:
-			masterList[ address ] = balance
+			masterList[address] = balance
 	except:
+		pass
 		#print("NFG ADDRESS")
+
 
 masterList = sorted(masterList.items(), key=lambda x: x[1], reverse=True)
 #print(masterList)
+print(len(toAddress))
 for x in masterList:
 	print(x)
