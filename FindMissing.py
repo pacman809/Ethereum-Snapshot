@@ -9,23 +9,18 @@ import config
 import collections
 from os import system
 
-#---CONFIG
-db              = "halo-explorer-mainnet"	#Database Name
-myclient        = pymongo.MongoClient("mongodb://localhost:27017/")
-mydb            = myclient[db]
-web3            = search.connect_geth()
-myCol           = mydb["blocks"]
+web3            		= config.geth()
 blockHeight             = []
-blockNumber     = 0
-missingBlocks   = []
+blockNumber     		= 0
+missingBlocks   		= []
 missingBlocksFinal      = []
 jump                    = 0
 mylist                  = 0
-#BlockTestHeight = 250000
-count 			= 0
+#BlockTestHeight 		= 250000 #UNHASH FOR TESTING
+count 					= 0
 
-for x in myCol.find().sort([('_id', -1)]).limit(1):
-	BlockTestHeight = x["number"]
+for x in config.block.find().sort([('_id', -1)]).limit(1):
+	BlockTestHeight = x["number"] #HASH FOR TESTING SETS BLOCK LIMIT
 
 def clear():
 
@@ -37,7 +32,7 @@ def find_missing(blockHeight):
 
 while blockNumber < BlockTestHeight:
 	
-	for x in myCol.find().skip(jump).limit(15000):
+	for x in config.block.find().skip(jump).limit(15000):
 		blockHeight.append(x["number"])
 		count = count + 1
 	
