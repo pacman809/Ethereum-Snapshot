@@ -87,9 +87,9 @@ for wallets in toAddress:
 masterList = sorted(masterList.items(), key=lambda x: x[1], reverse=True)
 print(len(toAddress))
 print(f'Address, {config.perspective}')				#HASH FOR RANK
-#print(f'Address, {config.perspective}, Rank') 		#UNHASH FOR RANK
+#print(f'Address, {config.perspective}, Rank') 			#UNHASH FOR RANK
 for x in masterList:
 	if x in masterList:
-		print(x)									#HASH FOR RANK
+		print(x)					#HASH FOR RANK
 		#print(f'{x}, {list(masterList).index(x)}')	#UNHASH FOR RANK
 		
