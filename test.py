@@ -35,7 +35,7 @@ def main():
 
 		for x in config.block.find_one( {"number": y} ):
 
-			if x[ "transaction_count" ] != 0:		
+			if x[ "transaction_count" ] != "0":		
 				for x in config.transaction.find_one({"block_number" : y }):
 					toAddress.add(x["to_address"])
 #					clear()
