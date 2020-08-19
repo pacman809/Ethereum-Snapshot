@@ -25,7 +25,7 @@ tokenTransfer		= mydb["token_transfer"]								#DB 'token_transfer' Collection n
 #------------------
 
 #---CONFIG SNAPBLOCKS
-SnapshotBlock		= 1000000									#Choose Snapshot Block Here
+SnapshotBlock		= 37137900									#Choose Snapshot Block Here
 SnapStart		= 1
 #SnapStart		= 33216666											#UNHASH FOR TESTING ONLY!!! CHOOSE START BLOCK HERE HASHED DEFAULTS TO 1
 #------------------
@@ -35,18 +35,22 @@ perspective		= 'WEI'												#Choose What Value To Display eg.) Ether, Wei, G
 suppress		= False	
 #------------------											#"Boolean" Suppress the output. For deferring output to Linux file eg. python findaddress.py > output.txt
 #---CONFIG---------
-tokenContracts = [
-"0xd314d564c36c1b9fbbf6b440122f84da9a551029",
-"0x59195ebd987bde65258547041e1baed5fbd18e8b",
-"0xb8648f065205b9c31055653d668723f4b840e4c0" ,
-"0x0343350a2b298370381cac03fe3c525c28600b21" ,
-"0x280750ccb7554faec2079e8d8719515d6decdc84" ,
-"0x32e31f27aaf3501a4f7139970477020baf9c8e1c" ,
-"0xc8481effc60fa765ccf8286ba346233ed113b024" ,
-"0x72649f2a739f2ed7454ca146fb9ba589747287f2" ,
-"0x5f2786097350e9d0a0cbba233774631991dc5e40" ,
-"0x978dc9ca2d75c9d187a9cb542c74c50c579a034a" ,
-"0xdfd55110016251c7537d7645f35f92afcfc468ed" ,
-"0xa6002d6df526683b528f87f95b4903f3c76cb7de" ,
-"0x4734e87fbd52516ff729345bbf910557f630477c" 
+tokenContracts = [	
+"0x280750ccb7554faec2079e8d8719515d6decdc84",	#	VET
+"0x59195ebd987bde65258547041e1baed5fbd18e8b",	#	DBET
+"0x0343350a2b298370381cac03fe3c525c28600b21",	#	VTHO
+"0xdfd55110016251c7537d7645f35f92afcfc468ed",	#	HXRO
+"0x14d01e64f0573925e28d69dc3846b2f0986ab8b8",	#	HST
+"0x5f2786097350e9d0a0cbba233774631991dc5e40",	#	EVED
+"0xb70b02222c53abf4e9ccac8fb701425db2ec4de1",	#	ZRX
+"0x4734e87fbd52516ff729345bbf910557f630477c",	#	PEG
+"0x0792fe820e7f65da788ac002ce88c74816b59142",	#	OMG
+"0xdc14c317abf4fca7ac2255f0da73b39f63598c76",	#	USDC
+"0xc8481effc60fa765ccf8286ba346233ed113b024",	#	BAT
+"0xb8648f065205b9c31055653d668723f4b840e4c0",	#	BTC
+"0x200941b46e8cbb645fe85cdd526e48826acfd8fa",	#	FLASH
+"0xd314d564c36c1b9fbbf6b440122f84da9a551029",	#	ETH
+"0xa6002d6df526683b528f87f95b4903f3c76cb7de",	#	FCT
+"0x092fb07d2171b3bc7a9581d7349c57bc0332a87f",	#	USDCO
+"0x72649f2a739f2ed7454ca146fb9ba589747287f2"	#	UDOO
 ]
