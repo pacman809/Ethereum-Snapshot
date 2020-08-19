@@ -39,7 +39,8 @@ def main(y, toAddress):
 					if x["to_address"] not in toAddress:
 						toAddress.append(x["to_address"])
 						clear()
-						print(x["to_address"])
+						print(len(toAddress))
+						print(y)
 		y = y +1
 
 	
