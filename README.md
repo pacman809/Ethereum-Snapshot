@@ -2,7 +2,8 @@
 
 Pre-Requisites
 
-- MongoDB populated with block and transaction data
+- MongoDB populated with block, token and transaction data
+```ethereumetl``` works great for this
 - Fully Indexed Collections (Blocks + Transactions)
 - Geth node (Archived)
 - Python 3
