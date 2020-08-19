@@ -4,6 +4,7 @@
 
 #ITERATES THROUGH OUTPUT OF TRANSACTION TO GATHER BALANCES AND CREATE A SNAPSHOT/RICHLIST FOR THE GIVEN CONFIG BLOCK "CONFIG.PY"
 import cProfile
+import pstats
 import pymongo
 from web3 import Web3
 import config
@@ -31,7 +32,7 @@ def main(y, toAddress):
 		for x in config.block.find( {"number": y} ):
 
 			if x[ "transaction_count" ] != 0:		
-				x =  config.transaction.find({"block_number" : y }):
+				for x in config.transaction.find({"block_number" : y }):
 					if x["to_address"] not in toAddress:
 						toAddress.append(x["to_address"])
 						clear()
@@ -42,3 +43,5 @@ def main(y, toAddress):
 	
 main(y, toAddress)
 profile.runcall(main)
+ps = pstats.Stats(profile)
+ps.print_stats()
