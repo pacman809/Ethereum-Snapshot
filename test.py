@@ -36,7 +36,7 @@ def main():
 
 			if x[ "transaction_count" ] != 0:		
 				for x in config.transaction.find({"block_number" : y }):
-					toAddress.extend(x["to_address"])
+					toAddress.add(x["to_address"])
 					clear()
 					print(len(toAddress))
 					print(y)
