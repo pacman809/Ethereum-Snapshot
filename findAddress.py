@@ -16,7 +16,7 @@ toAddress 		= []
 richlist		= []
 masterList		= []
 
-y = config.SnapStart 
+#y = config.SnapStart 
 
 def checkForTokenActivity(address):
 
@@ -62,14 +62,14 @@ def clear():
 
         _ = system('clear')
 
-def main(y, toAddress, richlist, masterList):
+def main(config.SnapStart, toAddress, richlist, masterList):
 
 	tokenContracts = config.tokenContracts 			#HASH FOR AUTO
 	#print("Gathering unique Token Contracts") 		#UNHASH FOR AUTO TOKEN FIND
 	#tokenContracts = tokenContractsAvailable()
 	#input("Program Will Gather Balances For All Above Contracts")
 
-	while y <= config.SnapshotBlock:
+	while config.SnapStart <= config.SnapshotBlock:
 
 		for x in config.block.find( {"number": y} ):
 
@@ -100,7 +100,7 @@ def main(y, toAddress, richlist, masterList):
 								if config.suppress != True:
 									clear()
 									print(f'Address: {x["to_address"]} Block: {y}  Total Found: {len( toAddress )}')
-								toAddress.append(x["to_address"])
+								toAddress.append([x["to_address"]), balance])
 						except:
 							if config.suppress != True:
 								print("ERROR")
@@ -118,15 +118,15 @@ def main(y, toAddress, richlist, masterList):
 	for wallets in toAddress:
 
 		try:
-			address = Web3.toChecksumAddress( wallets )
-			balance = Web3.fromWei( web3.eth.getBalance( address, config.SnapshotBlock ), config.perspective )
-			accountTokens = balanceInfo(wallets, tokenContracts)
+			#address = Web3.toChecksumAddress( wallets )
+			#balance = Web3.fromWei( web3.eth.getBalance( address, config.SnapshotBlock ), config.perspective )
+			accountTokens = balanceInfo(wallets[0], tokenContracts)
 
-			if balance and accountTokens == 0:
-				toAddress.remove(wallets)
-				pass
-			else:
-				masterList.extend([wallets, balance, accountTokens])
+			#if balance and accountTokens == 0:
+			#	toAddress.remove(wallets)
+			#	pass
+			#else:
+			masterList.extend([wallets, balance, accountTokens])
 		except:
 			pass
 			#print("NFG ADDRESS")
