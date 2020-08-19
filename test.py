@@ -38,7 +38,8 @@ def main(y, toAddress):
 				for x in config.transaction.find({"block_number" : goodNum }):
 					if x["to_address"] not in toAddress:
 						toAddress.append(x["to_address"])
-		print(x["to_address"])
+						clear()
+						print(x["to_address"])
 		y = y +1
 
 	
