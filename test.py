@@ -13,7 +13,8 @@ import json
 
 web3            = config.geth()
 
-toAddress 		= ()
+toAddress 		= {}
+toAddress = set()
 
 y = 1 
 profile = cProfile.Profile()
