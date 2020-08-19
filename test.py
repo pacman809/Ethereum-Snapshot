@@ -34,16 +34,12 @@ def main(y, toAddress):
 		for x in config.block.find( {"number": y} ):
 
 			if x[ "transaction_count" ] != 0:
-				goodNum = x[ "number" ]
-
-		
+				goodNum = x[ "number" ]		
 				for x in config.transaction.find({"block_number" : goodNum }):
-
 					if x["to_address"] not in toAddress:
-								toAddress.append(x["to_address"])
-                print(x["to_address"])
-
+						toAddress.append(x["to_address"])
+		print(x["to_address"])
 		y = y +1
 
 	
-main(y, toAddress, richlist, masterList)
+main(y, toAddress)
