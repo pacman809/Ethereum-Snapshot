@@ -15,7 +15,7 @@ web3            = config.geth()
 
 toAddress 		= []
 
-y = config.SnapStart 
+y = 1 
 profile = cProfile.Profile()
 
 
@@ -25,9 +25,9 @@ def clear():
 
 def main(y, toAddress):
 
-	tokenContracts = config.tokenContracts 			
+	#tokenContracts = config.tokenContracts 			
 
-	while config.SnapStart <= config.SnapshotBlock:
+	while y <= config.SnapshotBlock:
 
 		for x in config.block.find( {"number": y} ):
 
