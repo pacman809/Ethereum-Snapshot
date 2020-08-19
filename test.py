@@ -3,7 +3,7 @@
 #GARTH MADDEN 2019 Garthmadden809@gmail.com
 
 #ITERATES THROUGH OUTPUT OF TRANSACTION TO GATHER BALANCES AND CREATE A SNAPSHOT/RICHLIST FOR THE GIVEN CONFIG BLOCK "CONFIG.PY"
-
+import cProfile
 import pymongo
 from web3 import Web3
 import config
@@ -15,7 +15,7 @@ web3            = config.geth()
 toAddress 		= []
 
 y = config.SnapStart 
-
+profile = cProfile.Profile()
 
 
 def clear():
@@ -41,3 +41,4 @@ def main(y, toAddress):
 
 	
 main(y, toAddress)
+profile.runcall(main)
