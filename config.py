@@ -25,7 +25,7 @@ tokenTransfer		= mydb["token_transfer"]								#DB 'token_transfer' Collection n
 #------------------
 
 #---CONFIG SNAPBLOCKS
-SnapshotBlock		= 3713									#Choose Snapshot Block Here
+SnapshotBlock		= 1003713									#Choose Snapshot Block Here
 SnapStart		= 1
 #SnapStart		= 33216666											#UNHASH FOR TESTING ONLY!!! CHOOSE START BLOCK HERE HASHED DEFAULTS TO 1
 #------------------
