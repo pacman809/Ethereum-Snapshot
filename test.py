@@ -13,7 +13,7 @@ import json
 
 web3            = config.geth()
 
-toAddress 		= []
+toAddress 		= ()
 
 y = 1 
 profile = cProfile.Profile()
@@ -35,11 +35,10 @@ def main():
 
 			if x[ "transaction_count" ] != 0:		
 				for x in config.transaction.find({"block_number" : y }):
-					if x["to_address"] not in toAddress:
-						toAddress.append(x["to_address"])
-						clear()
-						print(len(toAddress))
-						print(y)
+					toAddress.extend(x["to_address"])
+					clear()
+					print(len(toAddress))
+					print(y)
 		y = y +1
 
 	
