@@ -23,7 +23,9 @@ def clear():
 
         _ = system('clear')
 
-def main(y, toAddress):
+def main():
+	y = 1
+	toAddress = []
 
 	#tokenContracts = config.tokenContracts 			
 
@@ -41,7 +43,7 @@ def main(y, toAddress):
 		y = y +1
 
 	
-main(y, toAddress)
+#main(y, toAddress)
 profile.runcall(main)
 ps = pstats.Stats(profile)
 ps.print_stats()
