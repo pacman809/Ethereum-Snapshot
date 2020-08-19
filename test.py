@@ -24,18 +24,14 @@ def clear():
 
 def main(y, toAddress):
 
-	tokenContracts = config.tokenContracts 			#HASH FOR AUTO
-	#print("Gathering unique Token Contracts") 		#UNHASH FOR AUTO TOKEN FIND
-	#tokenContracts = tokenContractsAvailable()
-	#input("Program Will Gather Balances For All Above Contracts")
+	tokenContracts = config.tokenContracts 			
 
 	while config.SnapStart <= config.SnapshotBlock:
 
 		for x in config.block.find( {"number": y} ):
 
-			if x[ "transaction_count" ] != 0:
-				goodNum = x[ "number" ]		
-				for x in config.transaction.find({"block_number" : goodNum }):
+			if x[ "transaction_count" ] != 0:		
+				x =  config.transaction.find({"block_number" : y }):
 					if x["to_address"] not in toAddress:
 						toAddress.append(x["to_address"])
 						clear()
