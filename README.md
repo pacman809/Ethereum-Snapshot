@@ -24,7 +24,7 @@ edit config.py accordingly
 Finds missing blocks in Chain. Gather all missing blocks and add to DB before continuing.
 Takes A long time depending on block height. approx 1 hr for 5M blocks
 
--run python test.py
+-run python snapIt.py
 
 
 Garth Madden
