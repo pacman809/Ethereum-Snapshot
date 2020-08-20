@@ -23,7 +23,7 @@ def balanceInfo(personal_address, foundContracts):
 
     results = {}
     abi = json.loads('[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}]')
-    account_checksum = Web3.toChecksumAddress(personal_address)
+    #account_checksum = Web3.toChecksumAddress(personal_address)
 
     for i in foundContracts:
         address = Web3.toChecksumAddress(i)
@@ -77,12 +77,10 @@ def main():
 		else:
 			pass
 			#print("Invalid Address")
-
+	print(f'ADDRESS, HALO, VET, DBET, VTHO, HXRO, HST, EVED, ZRX, PEG, OMG, USDC, BAT, BTC, FLASH, HETH, FCT, uDOO')
 	for x in wallets:
-		print(x)
-		#print()
-		#print(f'')
-	#print(datetime.now() - midway)
+		#print(x[2]["VET"])
+		print(f'{x[0]}, {x[1]}, {x[2]["VET"]}, {x[2]["DBET"]}, {x[2]["VTHO"]}, {x[2]["HXRO"]}, {x[2]["HST"]}, {x[2]["EVED"]}, {x[2]["ZRX"]}, {x[2]["PEG"]}, {x[2]["OMG"]}, {x[2]["USDC"]}, {x[2]["BAT"]}, {x[2]["BTC"]}, {x[2]["FLASH"]}, {x[2]["HETH"]}, {x[2]["FCT"]}, {x[2]["uDOO"]}')
 	print(len(wallets))
 main()
 
