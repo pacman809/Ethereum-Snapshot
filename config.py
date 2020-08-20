@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 #Garth Madden 2019 Garthmadden809@gmail.com
+#CONFIGURATION FILE FOR ETH-SNAP
 
 import pymongo
 from web3 import Web3
@@ -25,7 +26,7 @@ tokenTransfer		= mydb["token_transfer"]								#DB 'token_transfer' Collection n
 #------------------
 
 #---CONFIG SNAPBLOCKS
-SnapshotBlock		= 100									#Choose Snapshot Block Here
+SnapshotBlock		= 37143657									#Choose Snapshot Block Here
 SnapStart		= 1
 #SnapStart		= 33216666											#UNHASH FOR TESTING ONLY!!! CHOOSE START BLOCK HERE HASHED DEFAULTS TO 1
 #------------------
