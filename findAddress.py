@@ -100,7 +100,7 @@ def main(y, toAddress, richlist, masterList):
 								if config.suppress != True:
 									clear()
 									print(f'Address: {x["to_address"]} Block: {y}  Total Found: {len( toAddress )}')
-								toAddress.append([(x["to_address"])), balance])
+								toAddress.append([(x["to_address"]), balance])
 						except:
 							if config.suppress != True:
 								print("ERROR")
