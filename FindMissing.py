@@ -49,7 +49,7 @@ while blockNumber < BlockTestHeight:
 	for x in config.block.find().skip(jump).limit(15000):
 		blockHeight.append(x["number"])
 		count = count + 1
-	
+
 	clear()
 	mylist = '{:.2f}%'.format(blockNumber / BlockTestHeight * 100)
 	print (f'Gathering {mylist} Complete  {blockNumber} of {BlockTestHeight}')
@@ -65,9 +65,7 @@ while blockNumber < BlockTestHeight:
 			print("Flagged Blocks Exceed 1K, Checking Manually To Clear Cache")
 
 			for x in missingBlocks:
-				if myCol.count_documents({ "number": x }, limit = 1) != 0:
-					pass
-				else:
+				if myCol.count_documents({"number": x}, limit=1) == 0:
 					missingBlocksFinal.append(x)
 					print("NOT FOUND")
 
@@ -82,10 +80,8 @@ print()
 print("Testing for Flagged Blocks")
 
 for x in missingBlocks:
-        if myCol.count_documents({ "number": x }, limit = 1) != 0:
-                pass
-        else:
-                missingBlocksFinal.append(x)
+	if myCol.count_documents({"number": x}, limit=1) == 0:
+		missingBlocksFinal.append(x)
 
 print()
 

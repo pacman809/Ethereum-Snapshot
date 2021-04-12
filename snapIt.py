@@ -55,39 +55,33 @@ def balanceInfo(personal_address, foundContracts):
     return results
 
 def main():
-	y = 1
-	toAddress = {}
-	toAddress = set() 			
+    toAddress = {}
+    toAddress = set() 			
 
-	while y <= config.SnapshotBlock:
-		try:
-				SB = config.block.find_one( {"number": y} )
+    for y in range(1, config.SnapshotBlock + 1):
+        try:
+        		SB = config.block.find_one( {"number": y} )
 
-				if SB["transaction_count"] != 0:		
-						TB = config.transaction.find_one({"block_number" : y })
-						toAddress.add(TB["to_address"])
-		except:
-			print("Error")
-	
-		y = y +1
-	
-	for x in toAddress:
+        		if SB["transaction_count"] != 0:		
+        				TB = config.transaction.find_one({"block_number" : y })
+        				toAddress.add(TB["to_address"])
+        except:
+        	print("Error")
 
-		if x != '':
+    for x in toAddress:
 
-			tokenContracts = config.tokenContracts 	
-			address = Web3.toChecksumAddress(x)
-			balance = Web3.fromWei(web3.eth.getBalance(address, config.SnapshotBlock), config.perspective)
-			accountTokens = balanceInfo(x, tokenContracts)
-			wallets.extend([[address, balance, accountTokens]])
-		else:
-			pass
-		
-	print(f'ADDRESS, HALO, VET, DBET, VTHO, HXRO, HST, EVED, ZRX, PEG, OMG, USDC, BAT, BTC, FLASH, HETH, FCT, uDOO')
-	for x in wallets:
+        if x != '':
 
-		print(f'{x[0]}, {x[1]}, {x[2]["VET"]}, {x[2]["DBET"]}, {x[2]["VTHO"]}, {x[2]["HXRO"]}, {x[2]["HST"]}, {x[2]["EVED"]}, {x[2]["ZRX"]}, {x[2]["PEG"]}, {x[2]["OMG"]}, {x[2]["USDC"]}, {x[2]["BAT"]}, {x[2]["BTC"]}, {x[2]["FLASH"]}, {x[2]["HETH"]}, {x[2]["FCT"]}, {x[2]["uDOO"]}')
-	print(len(wallets))
+            tokenContracts = config.tokenContracts 	
+            address = Web3.toChecksumAddress(x)
+            balance = Web3.fromWei(web3.eth.getBalance(address, config.SnapshotBlock), config.perspective)
+            accountTokens = balanceInfo(x, tokenContracts)
+            wallets.extend([[address, balance, accountTokens]])
+    print(f'ADDRESS, HALO, VET, DBET, VTHO, HXRO, HST, EVED, ZRX, PEG, OMG, USDC, BAT, BTC, FLASH, HETH, FCT, uDOO')
+    for x in wallets:
+
+    	print(f'{x[0]}, {x[1]}, {x[2]["VET"]}, {x[2]["DBET"]}, {x[2]["VTHO"]}, {x[2]["HXRO"]}, {x[2]["HST"]}, {x[2]["EVED"]}, {x[2]["ZRX"]}, {x[2]["PEG"]}, {x[2]["OMG"]}, {x[2]["USDC"]}, {x[2]["BAT"]}, {x[2]["BTC"]}, {x[2]["FLASH"]}, {x[2]["HETH"]}, {x[2]["FCT"]}, {x[2]["uDOO"]}')
+    print(len(wallets))
 main()
 
 print(datetime.now() - startTime)
